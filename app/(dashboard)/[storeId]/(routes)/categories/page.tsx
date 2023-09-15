@@ -1,6 +1,7 @@
 import prismadb from '@/lib/prismadb'
 import CategoryClient from './components/CategoryClient'
 import { CategoryColumn } from './components/Columns'
+import { dateFormatter } from '@/lib/utils'
 
 export default async function CategoriesPage({
   params,
@@ -19,12 +20,11 @@ export default async function CategoriesPage({
     },
   })
 
-  const formatter = new Intl.DateTimeFormat('en-US')
   const formattedCategories: CategoryColumn[] = categories.map((item) => ({
     id: item.id,
     name: item.name,
     billboardLabel: item.billboard.label,
-    createdAt: formatter.format(item.createdAt),
+    createdAt: dateFormatter.format(item.createdAt),
   }))
   return (
     <div className='flex-col'>

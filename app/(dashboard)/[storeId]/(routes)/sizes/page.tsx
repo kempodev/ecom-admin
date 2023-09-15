@@ -1,6 +1,7 @@
 import prismadb from '@/lib/prismadb'
 import SizeClient from './components/SizeClient'
 import { SizeColumn } from './components/Columns'
+import { dateFormatter } from '@/lib/utils'
 
 export default async function SizesPage({
   params,
@@ -16,12 +17,11 @@ export default async function SizesPage({
     },
   })
 
-  const formatter = new Intl.DateTimeFormat('en-US')
   const formattedSizes: SizeColumn[] = sizes.map((item) => ({
     id: item.id,
     name: item.name,
     value: item.value,
-    createdAt: formatter.format(item.createdAt),
+    createdAt: dateFormatter.format(item.createdAt),
   }))
   return (
     <div className='flex-col'>

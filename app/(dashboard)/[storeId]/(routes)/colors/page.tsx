@@ -1,6 +1,7 @@
 import prismadb from '@/lib/prismadb'
 import ColorClient from '../colors/components/ColorClient'
 import { ColorColumn } from '../colors/components/Columns'
+import { dateFormatter } from '@/lib/utils'
 
 export default async function ColorsPage({
   params,
@@ -16,12 +17,11 @@ export default async function ColorsPage({
     },
   })
 
-  const formatter = new Intl.DateTimeFormat('en-US')
   const formattedColors: ColorColumn[] = colors.map((item) => ({
     id: item.id,
     name: item.name,
     value: item.value,
-    createdAt: formatter.format(item.createdAt),
+    createdAt: dateFormatter.format(item.createdAt),
   }))
   return (
     <div className='flex-col'>

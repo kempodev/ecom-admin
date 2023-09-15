@@ -4,7 +4,7 @@ import StoreSwitcher from '@/components/StoreSwitcher'
 
 // Mock the necessary dependencies
 jest.mock('next/navigation', () => ({
-  useParams: () => ({ storeId: 'exampleStoreId' }),
+  useParams: () => ({ storeId: '1' }),
   useRouter: () => ({
     push: jest.fn(), // Mock the router's push function
   }),
@@ -23,7 +23,7 @@ describe('StoreSwitcher', () => {
       {
         id: '2',
         name: 'Store 2',
-        userId: 'def',
+        userId: 'abc',
         createdAt: new Date('2023-01-01'),
         updatedAt: new Date('2023-02-01'),
       },
@@ -45,7 +45,7 @@ describe('StoreSwitcher', () => {
       {
         id: '2',
         name: 'Store 2',
-        userId: 'def',
+        userId: 'abc',
         createdAt: new Date('2023-01-01'),
         updatedAt: new Date('2023-02-01'),
       },
