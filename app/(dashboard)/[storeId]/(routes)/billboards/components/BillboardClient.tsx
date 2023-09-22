@@ -8,7 +8,7 @@ import { Heading } from '@/components/ui/heading'
 import { Separator } from '@/components/ui/separator'
 import { DataTable } from '@/components/ui/data-table'
 import ApiList from '@/components/ui/api-list'
-import { BillboardColumn, columns } from './Columns'
+import { type BillboardColumn, columns } from './Columns'
 
 type BillboardClientProps = {
   data: BillboardColumn[]
@@ -32,6 +32,7 @@ export default function BillboardClient({ data }: BillboardClientProps) {
         </Button>
       </div>
       <Separator />
+      {/* TODO: Add an x to clear search in data table */}
       <DataTable columns={columns} data={data} searchKey='label' />
       <Heading title='API' description='API calls for billboards' />
       <Separator />

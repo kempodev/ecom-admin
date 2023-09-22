@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Store } from '@prisma/client'
+import type { Store } from '@prisma/client'
 import {
   Check,
   ChevronsUpDown,

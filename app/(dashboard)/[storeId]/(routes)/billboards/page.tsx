@@ -1,6 +1,6 @@
 import prismadb from '@/lib/prismadb'
 import BillboardClient from './components/BillboardClient'
-import { BillboardColumn } from './components/Columns'
+import type { BillboardColumn } from './components/Columns'
 import { dateFormatter } from '@/lib/utils'
 
 export default async function BillboardsPage({

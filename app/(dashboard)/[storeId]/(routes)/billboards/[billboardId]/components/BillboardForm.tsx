@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import * as z from 'zod'
-import { Billboard } from '@prisma/client'
+import type { Billboard } from '@prisma/client'
 import { useForm } from 'react-hook-form'
 import { Trash } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import * as z from 'zod'
-import { Category, Color, Image, Product, Size } from '@prisma/client'
+import type { Category, Color, Image, Product, Size } from '@prisma/client'
 import { useForm } from 'react-hook-form'
 import { Trash } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -47,7 +47,7 @@ type ProductFormProps = {
 
 const formSchema = z.object({
   name: z.string().min(1),
-  images: z.object({ url: z.string() }).array(),
+  images: z.object({ url: z.string() }).array().min(1),
   price: z.coerce.number().min(1),
   categoryId: z.string().min(1),
   colorId: z.string().min(1),
