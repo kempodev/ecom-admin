@@ -1,6 +1,6 @@
 import prismadb from '@/lib/prismadb'
 import { currencyFormatter, dateFormatter } from '@/lib/utils'
-import { OrderColumn } from './components/Columns'
+import type { OrderColumn } from './components/Columns'
 import OrderClient from './components/OrderClient'
 
 export default async function OrdersPage({

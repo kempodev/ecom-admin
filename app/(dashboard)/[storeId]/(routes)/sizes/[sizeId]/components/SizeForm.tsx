@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import * as z from 'zod'
-import { Billboard, Size } from '@prisma/client'
+import type { Size } from '@prisma/client'
 import { useForm } from 'react-hook-form'
 import { Trash } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -23,7 +23,6 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import AlertModal from '@/components/modals/AlertModal'
-import ImageUpload from '@/components/ui/image-upload'
 
 type SizeFormProps = {
   initialData: Size | null
@@ -114,7 +113,7 @@ export default function SizeForm({ initialData }: SizeFormProps) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='space-y-8 w-full'
+          className='w-full space-y-8'
         >
           <div className='grid grid-cols-3 gap-8'>
             <FormField

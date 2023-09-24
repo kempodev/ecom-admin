@@ -25,6 +25,7 @@ export const ImageUpload = ({
     setIsMounted(true)
   }, [])
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onUpload = (result: any) => {
     onChange(result.info.secure_url)
   }
@@ -38,9 +39,9 @@ export const ImageUpload = ({
         {value.map((url) => (
           <div
             key={url}
-            className='relative w-[200px] h-[200px] rounded-md overflow-hidden'
+            className='relative h-[200px] w-[200px] overflow-hidden rounded-md'
           >
-            <div className='z-10 absolute top-2 right-2'>
+            <div className='absolute right-2 top-2 z-10'>
               <Button
                 type='button'
                 onClick={() => onRemove(url)}
@@ -72,7 +73,7 @@ export const ImageUpload = ({
               variant={'secondary'}
               onClick={onClick}
             >
-              <ImagePlus className='h-4 w-4 mr-2' />
+              <ImagePlus className='mr-2 h-4 w-4' />
               Upload an Image
             </Button>
           )

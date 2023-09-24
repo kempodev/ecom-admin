@@ -8,7 +8,7 @@ import { Heading } from '@/components/ui/heading'
 import { Separator } from '@/components/ui/separator'
 import { DataTable } from '@/components/ui/data-table'
 import ApiList from '@/components/ui/api-list'
-import { ProductColumn, columns } from './Columns'
+import { type ProductColumn, columns } from './Columns'
 
 type ProductClientProps = {
   data: ProductColumn[]

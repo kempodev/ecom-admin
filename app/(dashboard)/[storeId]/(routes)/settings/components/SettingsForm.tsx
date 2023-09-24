@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import * as z from 'zod'
-import { Store } from '@prisma/client'
+import type { Store } from '@prisma/client'
 import { useForm } from 'react-hook-form'
 import { Trash } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -98,7 +98,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='space-y-8 w-full'
+          className='w-full space-y-8'
         >
           <div className='grid grid-cols-3 gap-8'>
             <FormField

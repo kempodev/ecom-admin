@@ -1,6 +1,6 @@
 import prismadb from '@/lib/prismadb'
 import CategoryClient from './components/CategoryClient'
-import { CategoryColumn } from './components/Columns'
+import type { CategoryColumn } from './components/Columns'
 import { dateFormatter } from '@/lib/utils'
 
 export default async function CategoriesPage({

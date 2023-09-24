@@ -1,7 +1,7 @@
 import prismadb from '@/lib/prismadb'
 
 import ProductClient from './components/ProductClient'
-import { ProductColumn } from './components/Columns'
+import type { ProductColumn } from './components/Columns'
 import { currencyFormatter, dateFormatter } from '@/lib/utils'
 
 export default async function ProductPage({

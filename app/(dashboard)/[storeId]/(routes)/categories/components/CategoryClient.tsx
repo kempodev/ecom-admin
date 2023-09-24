@@ -8,7 +8,7 @@ import { Heading } from '@/components/ui/heading'
 import { Separator } from '@/components/ui/separator'
 import { DataTable } from '@/components/ui/data-table'
 import ApiList from '@/components/ui/api-list'
-import { CategoryColumn, columns } from './Columns'
+import { type CategoryColumn, columns } from './Columns'
 
 type CategoryClientProps = {
   data: CategoryColumn[]

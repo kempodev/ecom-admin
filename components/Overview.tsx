@@ -1,16 +1,9 @@
 'use client'
 
-import {
-  Bar,
-  BarChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts'
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
 
 type OverviewProps = {
-  data: any[]
+  data: unknown[]
 }
 
 export default function Overview({ data }: OverviewProps) {
@@ -33,7 +26,6 @@ export default function Overview({ data }: OverviewProps) {
             tickFormatter={(value) => `$${value}`}
           />
           <Bar dataKey={'total'} fill='#3498db' radius={[4, 4, 0, 0]} />
-          {/* <Tooltip /> */}
         </BarChart>
       </ResponsiveContainer>
     </div>

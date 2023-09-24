@@ -1,6 +1,6 @@
 import prismadb from '@/lib/prismadb'
 import ColorClient from '../colors/components/ColorClient'
-import { ColorColumn } from '../colors/components/Columns'
+import type { ColorColumn } from '../colors/components/Columns'
 import { dateFormatter } from '@/lib/utils'
 
 export default async function ColorsPage({

@@ -8,10 +8,11 @@ import { cn } from '@/lib/utils'
 type Props = {
   className?: string
   props?: {
-    [x: string]: any
+    [x: string]: unknown
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function MainNav({ className, ...props }: Props) {
   const pathname = usePathname()
   const params = useParams()

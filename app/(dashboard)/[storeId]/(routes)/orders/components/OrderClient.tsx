@@ -3,7 +3,7 @@
 import { Heading } from '@/components/ui/heading'
 import { Separator } from '@/components/ui/separator'
 import { DataTable } from '@/components/ui/data-table'
-import { OrderColumn, columns } from './Columns'
+import { type OrderColumn, columns } from './Columns'
 
 type OrderClientProps = {
   data: OrderColumn[]

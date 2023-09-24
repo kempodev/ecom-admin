@@ -13,7 +13,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { ColorColumn } from './Columns'
+import type { ColorColumn } from './Columns'
 import { Button } from '@/components/ui/button'
 import AlertModal from '@/components/modals/AlertModal'
 

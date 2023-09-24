@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import * as z from 'zod'
-import { Color } from '@prisma/client'
+import type { Color } from '@prisma/client'
 import { useForm } from 'react-hook-form'
 import { Trash } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -118,7 +118,7 @@ export default function ColorForm({ initialData }: ColorFormProps) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='space-y-8 w-full'
+          className='w-full space-y-8'
         >
           <div className='grid grid-cols-3 gap-8'>
             <FormField
@@ -153,7 +153,7 @@ export default function ColorForm({ initialData }: ColorFormProps) {
                         {...field}
                       />
                       <div
-                        className='border p-4 rounded-full'
+                        className='rounded-full border p-4'
                         style={{ backgroundColor: field.value }}
                       />
                     </div>
