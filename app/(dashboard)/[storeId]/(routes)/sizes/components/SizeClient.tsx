@@ -8,7 +8,7 @@ import { Heading } from '@/components/ui/heading'
 import { Separator } from '@/components/ui/separator'
 import { DataTable } from '@/components/ui/data-table'
 import ApiList from '@/components/ui/api-list'
-import { SizeColumn, columns } from './Columns'
+import { type SizeColumn, columns } from './Columns'
 
 type SizeClientProps = {
   data: SizeColumn[]
