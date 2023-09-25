@@ -121,7 +121,7 @@ export default function BillboardForm({ initialData }: BillboardFormProps) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='space-y-8 w-full'
+          className='w-full space-y-8'
         >
           <FormField
             control={form.control}
