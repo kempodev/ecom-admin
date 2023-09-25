@@ -152,42 +152,12 @@ export default function ColorForm({ initialData }: ColorFormProps) {
                         type='color'
                         {...field}
                       />
-                      <div
-                        className='rounded-full border p-4'
-                        style={{ backgroundColor: field.value }}
-                      />
                     </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-
-            {/* 
-            TODO: Remove if not needed
-            <FormField
-              control={form.control}
-              name='value'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Value</FormLabel>
-                  <FormControl>
-                    <div className='flex items-center gap-x-4'>
-                      <Input
-                        disabled={loading}
-                        placeholder='Color value'
-                        {...field}
-                      />
-                      <div
-                        className='border p-4 rounded-full'
-                        style={{ backgroundColor: field.value }}
-                      />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
           </div>
           <Button disabled={loading} className='ml-auto' type='submit'>
             {action}

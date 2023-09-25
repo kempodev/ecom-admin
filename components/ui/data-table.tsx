@@ -60,7 +60,15 @@ export function DataTable<TData, TValue>({
           }
           className='max-w-sm'
         />
+        {/* TODO: implement x to clear search */}
+        {/* <button
+          type='reset'
+          onClick={() => table.getColumn(searchKey)?.setFilterValue('')}
+        >
+          X
+        </button> */}
       </div>
+
       <div className='rounded-md border'>
         <Table>
           <TableHeader>

@@ -32,7 +32,6 @@ export default function BillboardClient({ data }: BillboardClientProps) {
         </Button>
       </div>
       <Separator />
-      {/* TODO: Add an x to clear search in data table */}
       <DataTable columns={columns} data={data} searchKey='label' />
       <Heading title='API' description='API calls for billboards' />
       <Separator />
