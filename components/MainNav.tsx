@@ -16,6 +16,7 @@ type Props = {
 export default function MainNav({ className, ...props }: Props) {
   const pathname = usePathname()
   const params = useParams()
+
   const routes = [
     {
       href: `/${params.storeId}`,
@@ -25,37 +26,37 @@ export default function MainNav({ className, ...props }: Props) {
     {
       href: `/${params.storeId}/billboards`,
       label: 'Billboards',
-      active: pathname === `/${params.storeId}/billboards`,
+      active: pathname.startsWith(`/${params.storeId}/billboards`),
     },
     {
       href: `/${params.storeId}/categories`,
       label: 'Categories',
-      active: pathname === `/${params.storeId}/categories`,
+      active: pathname.startsWith(`/${params.storeId}/categories`),
     },
     {
       href: `/${params.storeId}/sizes`,
       label: 'Sizes',
-      active: pathname === `/${params.storeId}/sizes`,
+      active: pathname.startsWith(`/${params.storeId}/sizes`),
     },
     {
       href: `/${params.storeId}/colors`,
       label: 'Colors',
-      active: pathname === `/${params.storeId}/colors`,
+      active: pathname.startsWith(`/${params.storeId}/colors`),
     },
     {
       href: `/${params.storeId}/products`,
       label: 'Products',
-      active: pathname === `/${params.storeId}/products`,
+      active: pathname.startsWith(`/${params.storeId}/products`),
     },
     {
       href: `/${params.storeId}/orders`,
       label: 'Orders',
-      active: pathname === `/${params.storeId}/orders`,
+      active: pathname.startsWith(`/${params.storeId}/orders`),
     },
     {
       href: `/${params.storeId}/settings`,
       label: 'Settings',
-      active: pathname === `/${params.storeId}/settings`,
+      active: pathname.startsWith(`/${params.storeId}/settings`),
     },
   ]
 
