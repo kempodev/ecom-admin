@@ -37,6 +37,7 @@ export const StoreModal = () => {
   })
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    console.log('submit')
     try {
       setLoading(true)
       const response = await axios.post('/api/stores', values)
@@ -81,6 +82,7 @@ export const StoreModal = () => {
               />
               <div className='flex items-center justify-end space-x-2 pt-6'>
                 <Button
+                  type='button'
                   variant={'outline'}
                   onClick={storeModal.onClose}
                   disabled={loading}
