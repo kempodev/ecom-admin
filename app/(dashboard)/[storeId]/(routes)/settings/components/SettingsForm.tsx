@@ -31,7 +31,7 @@ type SettingsFormProps = {
 }
 
 const formSchema = z.object({
-  name: z.string().min(1),
+  name: z.string().min(1, { message: 'Name is required.' }),
 })
 
 type SettingsFormValues = z.infer<typeof formSchema>

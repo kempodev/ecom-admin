@@ -37,8 +37,8 @@ type CategoryFormProps = {
 }
 
 const formSchema = z.object({
-  name: z.string().min(1),
-  billboardId: z.string().min(1),
+  name: z.string().min(1, { message: 'Name is required.' }),
+  billboardId: z.string().min(1, { message: 'Billboard is required.' }),
 })
 
 type CategoryFormValues = z.infer<typeof formSchema>

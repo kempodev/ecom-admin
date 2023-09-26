@@ -30,8 +30,8 @@ type BillboardFormProps = {
 }
 
 const formSchema = z.object({
-  label: z.string().min(1),
-  imageUrl: z.string().min(1),
+  label: z.string().min(1, { message: 'Label is required.' }),
+  imageUrl: z.string().min(1, { message: 'Image is required.' }),
 })
 
 type BillboardFormValues = z.infer<typeof formSchema>

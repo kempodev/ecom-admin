@@ -32,15 +32,19 @@ export async function POST(
     if (!price) {
       return new NextResponse('Price is required', { status: 400 })
     }
+
     if (!categoryId) {
       return new NextResponse('Category ID is required', { status: 400 })
     }
+
     if (!colorId) {
       return new NextResponse('Color ID is required', { status: 400 })
     }
+
     if (!sizeId) {
       return new NextResponse('Size ID is required', { status: 400 })
     }
+
     if (!images || images.length < 1) {
       return new NextResponse('Images are required', { status: 400 })
     }

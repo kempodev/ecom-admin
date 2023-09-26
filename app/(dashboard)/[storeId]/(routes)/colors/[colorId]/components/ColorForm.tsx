@@ -29,9 +29,9 @@ type ColorFormProps = {
 }
 
 const formSchema = z.object({
-  name: z.string().min(1),
-  value: z.string().min(4).regex(/^#/, {
-    message: 'String must be a valid hex code.',
+  name: z.string().min(1, { message: 'Name is required.' }),
+  value: z.string().regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/, {
+    message: 'Color must be a valid hex code.',
   }),
 })
 

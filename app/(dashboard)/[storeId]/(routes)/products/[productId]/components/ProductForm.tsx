@@ -46,12 +46,17 @@ type ProductFormProps = {
 }
 
 const formSchema = z.object({
-  name: z.string().min(1),
-  images: z.object({ url: z.string() }).array().min(1),
-  price: z.coerce.number().min(1),
-  categoryId: z.string().min(1),
-  colorId: z.string().min(1),
-  sizeId: z.string().min(1),
+  name: z.string().min(1, { message: 'Name is required.' }),
+  images: z
+    .object({ url: z.string().url({ message: 'Image URL is invalid.' }) })
+    .array()
+    .min(1, { message: 'At least one image is required.' }),
+  price: z.coerce
+    .number()
+    .positive({ message: 'Price must be greater than 0.' }),
+  categoryId: z.string().min(1, { message: 'Category is required.' }),
+  colorId: z.string().min(1, { message: 'Color is required.' }),
+  sizeId: z.string().min(1, { message: 'Size is required.' }),
   isFeatured: z.boolean().default(false).optional(),
   isArchived: z.boolean().default(false).optional(),
 })
@@ -208,6 +213,8 @@ export default function ProductForm({
                       type='number'
                       disabled={loading}
                       placeholder='9.99'
+                      min={0}
+                      step={0.01}
                       {...field}
                     />
                   </FormControl>
