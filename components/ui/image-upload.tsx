@@ -1,4 +1,5 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 import { ImagePlus, Trash } from 'lucide-react'
 import { CldUploadWidget } from 'next-cloudinary'
@@ -61,17 +62,15 @@ export const ImageUpload = ({
           </div>
         ))}
       </div>
+      {/* TODO: onUpload is deprecated, onSuccess allows only uses the most recent image, investigate a fix: https://next.cloudinary.dev/clduploadwidget/configuration */}
       <CldUploadWidget onUpload={onUpload} uploadPreset='rb3gbobf'>
         {({ open }) => {
-          const onClick = () => {
-            open()
-          }
           return (
             <Button
               type='button'
               disabled={disabled}
               variant={'secondary'}
-              onClick={onClick}
+              onClick={() => open()}
             >
               <ImagePlus className='mr-2 h-4 w-4' />
               Upload an Image

@@ -78,6 +78,7 @@ export default function BillboardForm({ initialData }: BillboardFormProps) {
       setLoading(false)
     }
   }
+
   const onDelete = async () => {
     try {
       setLoading(true)
@@ -96,6 +97,7 @@ export default function BillboardForm({ initialData }: BillboardFormProps) {
       setOpen(false)
     }
   }
+
   return (
     <>
       <AlertModal
