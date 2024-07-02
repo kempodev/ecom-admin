@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { ModalProvider } from '@/providers/ModalProvider'
 import { ToastProvider } from '@/providers/ToastProvider'
@@ -28,6 +29,7 @@ export default function RootLayout({
             <ModalProvider />
             {children}
           </ThemeProvider>
+          <SpeedInsights />
         </body>
       </html>
     </ClerkProvider>

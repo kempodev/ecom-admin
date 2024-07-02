@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-
 import {
   type ColumnDef,
   type ColumnFiltersState,
@@ -22,6 +21,7 @@ import {
 } from '@/components/ui/table'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { X } from 'lucide-react'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -49,24 +49,37 @@ export function DataTable<TData, TValue>({
     },
   })
 
+  const handleEscDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Escape') {
+      table.getColumn(searchKey)?.setFilterValue('')
+    }
+  }
+
   return (
     <div>
       <div className='flex items-center py-4'>
-        <Input
-          placeholder='Search'
-          value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ''}
-          onChange={(event) =>
-            table.getColumn(searchKey)?.setFilterValue(event.target.value)
-          }
-          className='max-w-sm'
-        />
-        {/* TODO: implement x to clear search */}
-        {/* <button
-          type='reset'
-          onClick={() => table.getColumn(searchKey)?.setFilterValue('')}
-        >
-          X
-        </button> */}
+        <div className='relative'>
+          <Input
+            placeholder='Search'
+            value={
+              (table.getColumn(searchKey)?.getFilterValue() as string) ?? ''
+            }
+            onChange={(event) =>
+              table.getColumn(searchKey)?.setFilterValue(event.target.value)
+            }
+            className='max-w-sm'
+            onKeyDown={handleEscDown}
+          />
+          <Button
+            className='absolute right-0 top-0'
+            variant='ghost'
+            size='icon'
+            type='reset'
+            onClick={() => table.getColumn(searchKey)?.setFilterValue('')}
+          >
+            <X className='h-4 w-4' />
+          </Button>
+        </div>
       </div>
 
       <div className='rounded-md border'>
@@ -112,7 +125,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className='h-24 text-center'
                 >
-                  No results.
+                  No results
                 </TableCell>
               </TableRow>
             )}

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
+    "test": "jest --detectOpenHandles --coverage",
     "test:watch": "jest --watchAll",
     "postinstall": "prisma generate"
   },
@@ -27,6 +27,7 @@
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "@vercel/speed-insights": "^1.0.12",
     "autoprefixer": "10.4.15",
     "axios": "^1.5.0",
     "class-variance-authority": "^0.7.0",
