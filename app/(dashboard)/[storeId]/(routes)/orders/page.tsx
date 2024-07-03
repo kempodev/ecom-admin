@@ -24,8 +24,6 @@ export default async function OrdersPage({
     },
   })
 
-  // TODO: fix order total changing when changing product prices
-
   const formattedOrders: OrderColumn[] = orders.map((order) => ({
     id: order.id,
     phone: order.phone,

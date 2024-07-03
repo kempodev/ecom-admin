@@ -64,7 +64,7 @@ export default async function DashboardPage({ params }: Props) {
         </div>
         <Card className='col-span-4'>
           <CardHeader>
-            <CardTitle>Overview</CardTitle>
+            <CardTitle>Sales per Month</CardTitle>
           </CardHeader>
           <CardContent className='pl-2'>
             <Overview data={graphRevenue} />

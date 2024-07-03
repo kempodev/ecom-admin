@@ -1,7 +1,7 @@
 'use client'
 
-import type { ColumnDef } from '@tanstack/react-table'
 import CellAction from './CellAction'
+import type { ColumnDef } from '@tanstack/react-table'
 
 export type ProductColumn = {
   id: string

@@ -1,9 +1,10 @@
-import type Stripe from 'stripe'
 import { headers } from 'next/headers'
 import { NextResponse } from 'next/server'
 
 import { stripe } from '@/lib/stripe'
 import prismadb from '@/lib/prismadb'
+
+import type Stripe from 'stripe'
 
 export async function POST(req: Request) {
   const body = await req.text()
@@ -41,7 +42,7 @@ export async function POST(req: Request) {
   const addressString = addressComponents.filter((c) => c !== null).join(', ')
 
   if (event.type === 'checkout.session.completed') {
-    const order = await prismadb.order.update({
+    await prismadb.order.update({
       where: {
         id: session?.metadata?.orderId,
       },
@@ -55,19 +56,19 @@ export async function POST(req: Request) {
       },
     })
 
-    const productIds = order.orderItems.map((orderItem) => orderItem.productId)
+    // const productIds = order.orderItems.map((orderItem) => orderItem.productId)
 
     // TODO: track and decrease quantity instead of archiving the product
-    await prismadb.product.updateMany({
-      where: {
-        id: {
-          in: [...productIds],
-        },
-      },
-      data: {
-        isArchived: true,
-      },
-    })
+    // await prismadb.product.updateMany({
+    //   where: {
+    //     id: {
+    //       in: [...productIds],
+    //     },
+    //   },
+    //   data: {
+    //     isArchived: true,
+    //   },
+    // })
   }
   return new NextResponse(null, { status: 200 })
 }
