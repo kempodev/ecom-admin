@@ -26,18 +26,14 @@ export default async function OrdersPage({
 
   // TODO: fix order total changing when changing product prices
 
-  const formattedOrders: OrderColumn[] = orders.map((item) => ({
-    id: item.id,
-    phone: item.phone,
-    address: item.address,
-    products: item.orderItems.map((item) => item.product.name).join(', '),
-    totalPrice: currencyFormatter.format(
-      item.orderItems.reduce((total, item) => {
-        return total + Number(item.product.price)
-      }, 0)
-    ),
-    isPaid: item.isPaid,
-    createdAt: dateFormatter.format(item.createdAt),
+  const formattedOrders: OrderColumn[] = orders.map((order) => ({
+    id: order.id,
+    phone: order.phone,
+    address: order.address,
+    products: order.orderItems.map((item) => item.product.name).join(', '),
+    totalPrice: currencyFormatter.format(Number(order.totalAmount)),
+    isPaid: order.isPaid,
+    createdAt: dateFormatter.format(order.createdAt),
   }))
   return (
     <div className='flex-col'>

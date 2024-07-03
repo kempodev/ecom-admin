@@ -34,31 +34,38 @@ export async function POST(
 
   const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = []
 
-  products.forEach((product) => {
+  let totalAmount = 0
+
+  const orderItems = products.map((product) => {
+    const quantity = 1
+    const price = product.price.toNumber()
+    totalAmount += price * quantity
+
     line_items.push({
-      quantity: 1,
+      quantity,
       price_data: {
         currency: 'USD',
         product_data: {
           name: product.name,
         },
-        unit_amount: product.price.toNumber() * 100,
+        unit_amount: Math.round(price * 100), // Stripe expects amount in cents
       },
     })
+
+    return {
+      productId: product.id,
+      price,
+      quantity,
+    }
   })
 
   const order = await prismadb.order.create({
     data: {
       storeId: params.storeId,
       isPaid: false,
+      totalAmount,
       orderItems: {
-        create: productIds.map((productId: string) => ({
-          product: {
-            connect: {
-              id: productId,
-            },
-          },
-        })),
+        create: orderItems,
       },
     },
   })
