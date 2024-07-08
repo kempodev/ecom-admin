@@ -54,6 +54,9 @@ const formSchema = z.object({
   price: z.coerce
     .number()
     .positive({ message: 'Price must be greater than 0.' }),
+  quantity: z.coerce.number().int().nonnegative({
+    message: 'Quantity must be a non-negative integer.',
+  }),
   categoryId: z.string().min(1, { message: 'Category is required.' }),
   colorId: z.string().min(1, { message: 'Color is required.' }),
   sizeId: z.string().min(1, { message: 'Size is required.' }),
@@ -94,6 +97,7 @@ export default function ProductForm({
           categoryId: '',
           colorId: '',
           sizeId: '',
+          quantity: 1,
           isFeatured: false,
           isArchived: false,
         },
@@ -314,6 +318,26 @@ export default function ProductForm({
                       ))}
                     </SelectContent>
                   </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='quantity'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Quantity</FormLabel>
+                  <FormControl>
+                    <Input
+                      type='number'
+                      disabled={loading}
+                      placeholder='1'
+                      min={0}
+                      step={1}
+                      {...field}
+                    />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}

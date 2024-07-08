@@ -50,6 +50,7 @@ export async function PATCH(
       colorId,
       sizeId,
       images,
+      quantity,
       isFeatured,
       isArchived,
     } = body
@@ -57,9 +58,13 @@ export async function PATCH(
     if (!name) {
       return new NextResponse('Name is required', { status: 400 })
     }
-
     if (!price) {
       return new NextResponse('Price is required', { status: 400 })
+    }
+    if (quantity < 0) {
+      return new NextResponse('Quantity cannot be less than zero', {
+        status: 400,
+      })
     }
     if (!categoryId) {
       return new NextResponse('Category ID is required', { status: 400 })
@@ -73,7 +78,6 @@ export async function PATCH(
     if (!images || images.length < 1) {
       return new NextResponse('Images are required', { status: 400 })
     }
-
     if (!params.productId) {
       return new NextResponse('Product ID is required', { status: 400 })
     }
@@ -99,6 +103,7 @@ export async function PATCH(
         categoryId,
         colorId,
         sizeId,
+        quantity,
         images: {
           deleteMany: {},
         },

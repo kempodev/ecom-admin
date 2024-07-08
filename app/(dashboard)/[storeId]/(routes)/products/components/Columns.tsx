@@ -10,6 +10,7 @@ export type ProductColumn = {
   size: string
   category: string
   color: string
+  quantity: number
   isFeatured: boolean
   isArchived: boolean
   createdAt: string
@@ -28,10 +29,7 @@ export const columns: ColumnDef<ProductColumn>[] = [
     accessorKey: 'isFeatured',
     header: 'Featured',
   },
-  {
-    accessorKey: 'price',
-    header: 'Price',
-  },
+
   {
     accessorKey: 'category',
     header: 'Category',
@@ -52,6 +50,18 @@ export const columns: ColumnDef<ProductColumn>[] = [
         {row.original.color}
       </div>
     ),
+  },
+  {
+    accessorKey: 'quantity',
+    header: 'Quantity',
+    cell: ({ row }) => (
+      <div className='text-right'>{row.original.quantity}</div>
+    ),
+  },
+  {
+    accessorKey: 'price',
+    header: 'Price',
+    cell: ({ row }) => <div className='text-right'>{row.original.price}</div>,
   },
   {
     accessorKey: 'createdAt',

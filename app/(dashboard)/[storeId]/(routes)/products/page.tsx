@@ -32,8 +32,10 @@ export default async function ProductPage({
     category: item.category.name,
     size: item.size.name,
     color: item.color.name,
+    quantity: item.quantity,
     createdAt: dateFormatter.format(item.createdAt),
   }))
+
   return (
     <div className='flex-col'>
       <div className='flex-1 space-y-4 p-8 pt-6'>
